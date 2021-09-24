@@ -39,3 +39,29 @@ on the other end, restoring packages is done with pip:
 [Python docs: Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html)
 
 [Pythin docs: pip](https://docs.python.org/3/installing/index.html#installing-index)
+
+
+
+### Environment variables (dotenv)
+
+This project uses python-dotenv to manage secrets and configuration.
+
+The benefit is that we can setup live environment variables on our hosting provider and read local environment variables from a file - all using the same code. 
+
+**.env**
+
+In the root of the project, you must keep a file named `.env`, this will contain secrets and configuration.
+
+In the root of the project you will find `.env.example` which you can copy and rename to `.env`. The file contains dummy values which you should replace. Ask a collaborator for help if needed. 
+
+*IMPORTANT:*  It is important to never check this file into git as this will expose secrets and possibly break builds.
+
+**settings.py**
+
+In order to streamline the code all access of environment variables is done via the `settings.py` module.
+
+**Adding a new variable** 
+
+When adding a new variable, just add it in `.env` and `settings.py` (follow the patterns already established). Also add it to `.env.example` with a dummy value.
+
+[python-dotenv docs](https://pypi.org/project/python-dotenv/)
