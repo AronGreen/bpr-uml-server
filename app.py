@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 import json
+import settings
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -18,4 +19,4 @@ def handle_source(json_data):
 
 
 if __name__ == "__main__":
-    socketio.run(app)
+    socketio.run(app, port=settings.PORT)
