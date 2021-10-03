@@ -1,9 +1,12 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
-import json
+from api.workspace import workspace_api
 import settings
 
 app = Flask(__name__)
+
+app.register_blueprint(workspace_api)
+
 socketio = SocketIO(app)
 
 
